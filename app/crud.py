@@ -1,26 +1,33 @@
 from sqlalchemy.orm import Session
 from . import models, schemas
 
-# Company CRUD
-def get_companies(db: Session):
-    return db.query(models.Company).all()
+# Organization CRUD
 
-def create_company(db: Session, company: schemas.CompanyCreate):
-    db_company = models.Company(**company.dict())
-    db.add(db_company)
+
+def get_organizations(db: Session):
+    return db.query(models.Organization).all()
+
+
+def create_organization(db: Session, organization: schemas.OrganizationCreate):
+    db_organization = models.Organization(**organization.dict())
+    db.add(db_organization)
     db.commit()
-    db.refresh(db_company)
-    return db_company
+    db.refresh(db_organization)
+    return db_organization
 
-def delete_company(db: Session, company_id: int):
-    db_company = db.query(models.Company).get(company_id)
-    if db_company:
-        db.delete(db_company)
+
+def delete_organization(db: Session, organization_id: int):
+    db_organization = db.query(models.Organization).get(organization_id)
+    if db_organization:
+        db.delete(db_organization)
         db.commit()
 
 # Contact CRUD
+
+
 def get_contacts(db: Session):
     return db.query(models.Contact).all()
+
 
 def create_contact(db: Session, contact: schemas.ContactCreate):
     db_contact = models.Contact(**contact.dict())
@@ -28,6 +35,7 @@ def create_contact(db: Session, contact: schemas.ContactCreate):
     db.commit()
     db.refresh(db_contact)
     return db_contact
+
 
 def delete_contact(db: Session, contact_id: int):
     db_contact = db.query(models.Contact).get(contact_id)

@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .database import Base, engine
-from .routers import contacts, companies
+from .routers import contacts, organizations
 
 Base.metadata.create_all(bind=engine)
 
@@ -15,8 +15,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(companies.router)
+app.include_router(organizations.router)
 app.include_router(contacts.router)
+
 
 @app.get("/")
 def root():
