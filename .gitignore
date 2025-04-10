@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual environment
+venv/
+env/
+.venv/
+.env/
+*.env
+
+# VS Code / IDEs
+.vscode/
+.idea/
+
+# macOS/Linux/Windows junk
+.DS_Store
+Thumbs.db
+
+# Pydantic / FastAPI cache
+*.log
+*.sqlite3
+
+# Test cache
+.pytest_cache/
+.tox/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# Mypy
+.mypy_cache/
+.dmypy.json
+
+# Others
+*.db
+*.egg-info/
+dist/
+build/
